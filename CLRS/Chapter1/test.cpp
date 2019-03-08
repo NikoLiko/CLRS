@@ -15,17 +15,18 @@ int main(void)
     while(in >> num){
         list_double.push_back(num);
     }
-    for (auto list_iter_j = list_double.begin()++;list_iter_j != list_double.end(); list_iter_j++){
+    for (auto list_iter_j = list_double.begin() + 1;list_iter_j != list_double.end(); list_iter_j++){
         auto list_iter_i = list_iter_j - 1;
-        double key = (*list_iter_j);
-        while (list_iter_i > list_double.begin() && *(list_iter_i) > *(list_iter_j)){
-            *(list_iter_i++) = *(list_iter_i);
+        double key = *list_iter_j;
+        while (list_iter_i >= list_double.begin() && *(list_iter_i) > key){
+            *(list_iter_i + 1) = *(list_iter_i);
             list_iter_i--;
         }
-        *(list_iter_i) = key;
+        *(list_iter_i + 1) = key;
     }
     for (auto list_iter_i = list_double.begin();list_iter_i != list_double.end();list_iter_i++){
         cout << *list_iter_i << endl;
     }
+    system("pause");
     return 0;
 }
